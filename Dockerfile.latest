@@ -15,4 +15,7 @@ RUN chmod +x /docker-entrypoint-initdb.d/init-ssl.sh
 RUN chmod +x /usr/local/bin/wrapper.sh
 
 ENTRYPOINT ["wrapper.sh"]
+
+COPY ./add-vector-extension.sql /docker-entrypoint-initdb.d/
+
 CMD ["postgres", "--port=5432"]
